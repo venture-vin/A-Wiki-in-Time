@@ -3,7 +3,6 @@ var styles = require('../styles');
 
 var NavBarContainer = React.createClass({
   componentDidMount(){
-    console.log(this)
       $('#wiki-header').hover(function() {
         $(this).addClass('magictime perspectiveUpRetourn')
       });
