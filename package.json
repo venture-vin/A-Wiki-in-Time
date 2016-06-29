@@ -6,7 +6,7 @@
   "scripts": {
     "production": "webpack -p",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
-    "start": "node ./app/app.js"
+    "start": "node ./app.js"
   },
   "author": "",
   "license": "ISC",
