@@ -4,13 +4,6 @@ var axios = require('axios');
 var PropTypes = React.PropTypes;
 
 var SearchContainer = React.createClass({
-  getInitialState(){
-    return {
-      hasQueried: false,
-      queryResults: [],
-    }
-  },
-
   handleSubmit: function(e) {
     e.preventDefault();
     var that = this;
@@ -34,8 +27,6 @@ var SearchContainer = React.createClass({
           // }
         }
         that.props.onUpdate(events)
-        that.setState({hasQueried: true})
-        that.setState({queryResults: events})
       }
     }).catch(function(err) {
       console.log('fail', err)
@@ -58,10 +49,7 @@ var SearchContainer = React.createClass({
   render(){
     return (
       <SubmitForm
-        onFormSubmit={this.handleSubmit}
-        queryAgain={this.queryAgain}
-        queryResults={this.state.queryResults}
-        hasQueried={this.state.hasQueried} />
+        onFormSubmit={this.handleSubmit} />
     )
   }
 });

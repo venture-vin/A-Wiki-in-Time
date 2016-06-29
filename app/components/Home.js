@@ -5,6 +5,7 @@ var initialCenter = {lat: 37.784580, lng: -122.397437};
 var SearchContainer = require('../containers/SearchContainer');
 var Sidebar = require('react-sidebar').default;
 var NavBarContainer = require('../containers/NavBarContainer');
+var SidebarResults = require('../components/SidebarResults');
 
 var Home = React.createClass({
   getInitialState() {
@@ -12,6 +13,7 @@ var Home = React.createClass({
       isLoaded: false,
       sidebarOpen: false,
       sidebarDocked: false,
+      hasQueried: false,
       data: []
     }
   },
@@ -22,7 +24,8 @@ var Home = React.createClass({
 
   handleUpdate(events){
     this.setState({
-      data: events
+      data: events,
+      hasQueried: true
     })
   },
 
@@ -58,27 +61,37 @@ var Home = React.createClass({
 
 
   render() {
-    var sidebarContent = <h2 style={{color: 'grey'}}>SideBar Stuff</h2>;
+    var sidebarContent = <SidebarResults
+      queryResults={this.state.data} />
       var contentHeader = (
         <span>
           {!this.state.sidebarDocked &&
             <a onClick={this.toggleOpen} href="#" style={{fontSize: '3em'}}>=</a>}
               <NavBarContainer />
             </span>);
-            return (
-              <div style={{width: '100%', height: '100%'}}>
-                <Sidebar sidebar={sidebarContent}
-                  open={this.state.sidebarOpen}
-                  docked={this.state.sidebarDocked}
-                  onSetOpen={this.onSetSidebarOpen} >
-                  <div>{contentHeader}</div>
+            if(this.state.hasQueried){
+    return (
+        <Sidebar sidebar={sidebarContent} styles={{sidebar: { width: '30%'}}}
+          open={this.state.sidebarOpen}
+          docked={this.state.sidebarDocked}
+          onSetOpen={this.onSetSidebarOpen}
+          style={{width: '70%', height: '100%'}}>
+          <div>{contentHeader}</div>
 
-                  <Gmap initialCenter={initialCenter} ref="map"/>
-                  <SearchContainer onUpdate={this.handleUpdate}/>
-                </Sidebar>
-              </div>
-            )
-          }
-        });
+          <Gmap initialCenter={initialCenter} ref="map"/>
+          <SearchContainer onUpdate={this.handleUpdate}/>
+        </Sidebar>
+        )
+      }
+
+      return (
+        <div style={{width: '100%', height: '100%'}}>
+          <NavBarContainer />
+          <Gmap initialCenter={initialCenter} ref="map"/>
+          <SearchContainer onUpdate={this.handleUpdate}/>
+        </div>
+      )
+      }
+    });
 
         module.exports = Home;
