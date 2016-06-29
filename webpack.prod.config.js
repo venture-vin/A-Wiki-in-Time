@@ -35,7 +35,7 @@ module.exports = {
         exclude: /node_modules/ },
         { test: /\.css?$/,
           loader: 'style-loader!css-loader',
-          include: path.join(__dirname, 'app', 'styles') },
+          include: path.join(__dirname, 'app') },
           {
             test: /.*\.(gif|png|jpe?g|svg)$/i,
             loaders: [
@@ -45,9 +45,8 @@ module.exports = {
           },
           { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loaders: [
             'file?name=/fonts/endor/[name].[ext]',
-            "file-loader"  ]  }
-          ]
-        },
-      ]
-    }
-  }
+            "file-loader"  ]
+          }
+        ]
+      },
+}
