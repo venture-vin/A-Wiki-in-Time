@@ -17,12 +17,11 @@ var NavBarContainer = React.createClass({
       <nav className="navbar">
         {/*<div className="container">*/}
           <div id='header' className="col-center">
+            {React.cloneElement(this.props.children)}
             <span className='header-div'><a href='/'>A </a></span>
             <span className='header-div' id='wiki-header'><a href='/'>WiKi</a></span>
             <span className='header-div'><a href='/'>in </a></span>
             <span className='header-div'><a href='/'>Time</a></span>
-            <button id="login" className='btn btn-warning-outline btn-lg' type='button'> Login </button>
-            <button id="register" className='btn btn-danger btn-lg' type='button'> Register </button>
           {/*</div>*/}
         </div>
       </nav>

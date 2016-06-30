@@ -37,18 +37,7 @@ var Home = React.createClass({
     if(google) {
       this.setState({isLoaded: true});
     }
-    // var mql = window.matchMedia(`(min-width: 800px)`);
-    // mql.addListener(this.mediaQueryChanged);
-    // this.setState({mql: mql, sidebarDocked: mql.matches});
   },
-  //
-  // componentWillUnmount: function() {
-  //   this.state.mql.removeListener(this.mediaQueryChanged);
-  // },
-  //
-  // mediaQueryChanged: function() {
-  //   this.setState({sidebarDocked: this.state.mql.matches});
-  // },
 
   toggleOpen(ev) {
     if (ev) {
@@ -62,14 +51,15 @@ var Home = React.createClass({
   render() {
     var sidebarContent = <SidebarResults queryResults={this.state.data} />
       var contentHeader = (
-        <span>
+        <NavBarContainer >
+        <span styles={{marginTop: '20em'}}>
           {!this.state.sidebarDocked &&
-            <a onClick={this.toggleOpen} href="#" style={{fontSize: '3em'}}>=</a>}
-              <NavBarContainer />
-            </span>);
-            // if(this.state.hasQueried){
+            <button id="results" className='btn btn-warning-outline btn-lg' type='button'> <a onClick={this.toggleOpen} href="#">Search Results</a></button>}
+            </span>
+          </NavBarContainer>
+          );
     return (
-        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{sidebar: { width: '30%'}, content: { overflow: 'unset', height: '70%'}}}
+        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{sidebar: { width: '40%', backgroundImage: "url('./images/skulls/skulls.png')"}, content: { overflow: 'unset', height: '70%'}}}
           open={this.state.sidebarOpen}
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}
@@ -80,15 +70,6 @@ var Home = React.createClass({
           <SearchContainer onUpdate={this.handleUpdate}/>
         </Sidebar>
         )
-      // }
-      //
-      // return (
-      //   <div style={{width: '100%', height: '100%'}}>
-      //     <NavBarContainer />
-      //     <Gmap initialCenter={initialCenter} ref="map"/>
-      //     <SearchContainer onUpdate={this.handleUpdate}/>
-      //   </div>
-      // )
       }
     });
 

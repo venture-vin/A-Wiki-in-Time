@@ -48,31 +48,30 @@ body {
   width: 90%
 }
 
-#header{
+#header {
   height: 5%;
   text-align: center;
   font-family: 'UnifrakturCook', serif;
-  margin: 0px auto;
+  /*margin: 0px auto;*/
   /*transition: 0.3s ease;*/
 }
 
 #container > div > span > button {
   display: inline-block;
 }
-
-#login {
-  margin-top: 15px;
-  float: right;
-  background-color: #C6DABF;
-  font-size: 2em;
+a {
+  color: black;
 }
 
-#register{
-  float: right;
+#results {
   margin-top: 15px;
-  margin-right: 10px;
+  font-family: 'UnifrakturCook', serif;
   font-size: 2em;
+  margin-left: 20px;
+  background-color: #F3E9D2;
+  float: left;
 }
+
 .header-div {
   display: inline-block;
   transition: 0.3s ease;
@@ -130,7 +129,7 @@ body {
 }
 
 .card {
-  background: #F1F1F1;
+  background: white;
   padding: 3em;
   padding-top: 1em;
   margin-top: 1.5em;
