@@ -67,6 +67,7 @@ body {
   transition: 0.3s ease;
   font-size: 4em;
   margin-right: 15px;
+  margin-top: 15px; 
 }
 
 .header-div a {
@@ -133,11 +134,13 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 200px;
+  font-family: Raleway;
 }
 
 .card-text {
   overflow: hidden;
   text-overflow: ellipsis;
+  /*font-family: Raleway;*/
 }
 
 .element-container {
@@ -199,4 +202,6 @@ option {
   font-size: 4em;
 }
 
-.gm-style-iw
+.gm-style-iw {
+  font-family: Raleway;
+}
