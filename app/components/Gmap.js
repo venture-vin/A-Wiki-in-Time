@@ -9,6 +9,9 @@ var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
 // window.googleMap = {};
 window.bermudaTriangle = {};
+window.googleLat = 0;
+window.googleLng = 0;
+window.googlePoly = '';
 
 
 var styleArray = [
@@ -191,8 +194,10 @@ var Gmap = React.createClass({
       var lat = event.latLng.lat();
       var long = event.latLng.lng();
       var latlng = {lat: lat, lng: long};
-      $('#lat-input').val(lat);
-      $('#long-input').val(long);
+      googleLat = lat;
+      googleLng = long;
+      // $('#lat-input').val(lat);
+      // $('#long-input').val(long);
       this.infoWindow = that.createInfoWindow(latlng);
     });
 
@@ -220,8 +225,8 @@ var Gmap = React.createClass({
       event.preventDefault();
       bermudaTriangle.setMap(null);
       $('#polygon-mode').removeClass('red')
-      $('#polygon-input').val('')
-      clearMarkers();
+      googlePoly = ''
+      that.clearEventMarkers(that.state.eventMarkers);
       bermudaTriangle = new google.maps.Polygon({
         paths: quadCoords,
         strokeColor: '#FF0000',
@@ -237,13 +242,13 @@ var Gmap = React.createClass({
     })
     $('#polygon-mode').on('click', function(event) {
       event.preventDefault();
-      var value = $('#polygon-input').val()
+      var value = googlePoly
       if (value == ''){
-        $('#polygon-input').val('true')
+        googlePoly = 'true';
         bermudaTriangle.setMap(that.state.map);
         $('#polygon-mode').addClass('red')
       } else {
-        $('#polygon-input').val('')
+        googlePoly = ''
         bermudaTriangle.setMap(null);
         $('#polygon-mode').removeClass('red')
       }
