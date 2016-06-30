@@ -7,6 +7,13 @@ var siegeMarker = require('../images/event-marker-3.png');
 var explorerMarker = require('../images/event-marker-4.png');
 var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
+var bermudaTriangle;
+var quadCoords = [
+{lat: 25.774, lng: -80.190},
+{lat: 18.466, lng: -66.118},
+{lat: 32.321, lng: -64.757},
+{lat: 25.774, lng: -80.190}
+]
 
 var styleArray = [
 {
@@ -183,6 +190,52 @@ var Gmap = React.createClass({
       $('#long-input').val(long);
       this.infoWindow = that.createInfoWindow(latlng);
     });
+
+    bermudaTriangle = new google.maps.Polygon({
+      paths: quadCoords,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      draggable: true,
+      geodesic: true,
+      editable: true
+    });
+    bermudaTriangle.setMap(null);
+
+    $('#reset-button').on('click', function(event) {
+      event.preventDefault();
+      bermudaTriangle.setMap(null);
+      $('#polygon-mode').removeClass('red')
+      $('#polygon-input').val('')
+      clearMarkers();
+      bermudaTriangle = new google.maps.Polygon({
+        paths: quadCoords,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        draggable: true,
+        geodesic: true,
+        editable: true
+      });
+
+    })
+    $('#polygon-mode').on('click', function(event) {
+      event.preventDefault();
+      var value = $('#polygon-input').val()
+      if (value == ''){
+        $('#polygon-input').val('true')
+        bermudaTriangle.setMap(map);
+        $('#polygon-mode').addClass('red')
+      } else {
+        $('#polygon-input').val('')
+        bermudaTriangle.setMap(null);
+        $('#polygon-mode').removeClass('red')
+      }
+    })
   },
 
   // clean up event listeners when component unmounts

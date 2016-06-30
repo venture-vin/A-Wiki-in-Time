@@ -24,8 +24,11 @@ function SubmitForm(props){
               <SliderStartYr />
               <SliderEndYr />
               <SliderRadius />
+              <input id='polygon-input' type='hidden' name='polygon' value='' />
               <input id='lat-input' type='hidden' name='lat' value='' />
               <input id='long-input' type='hidden' name='long' value='' />
+              <button id='polygon-mode' className="btn btn-block">POLYGONMODE</button>
+              <button id='reset-button' className="btn btn-block">RESET POLYGON</button>
             </div>
             <div className="form-group col-sm-4 col-sm-offset-4">
               <input
