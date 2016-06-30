@@ -1,7 +1,12 @@
 var React = require('react');
 var blueMarkerA = require('../images/blue_MarkerA.png')
 // var initialCenter = {lat: 37.784580, lng: -122.397437};
-var iconPath = '../images/event-markers/event-marker-'
+var battleMarker = require('../images/event-marker-1.png');
+var assassinationMarker = require('../images/event-marker-2.png');
+var siegeMarker = require('../images/event-marker-3.png');
+var explorerMarker = require('../images/event-marker-4.png');
+var disasterMarker = require('../images/event-marker-5.png');
+var archMarker = require('../images/event-marker-6.png');
 
 var styleArray = [
 {
@@ -205,37 +210,41 @@ var Gmap = React.createClass({
 
   newAddMarkerWithTimeout: function(position, timeout, battle) {
     var that = this;
+    var icon;
 
     switch (battle.event_type) {
-     case "battle":
-     iconPath += '1.png';
-     break;
-     case "archaeological site":
-     iconPath += '6.png';
-     break;
-     case "explorer":
-     iconPath += '4.png';
-     break;
-     case "earthquake":
-     case "tornado":
-     case "volcano":
-     iconPath += '5.png';
-     break;
-     case "assassination":
-     iconPath += '2.png';
-     break;
-     case "siege":
-     iconPath += '3.png';
-     break;
-     default:
-     iconPath = randomIconPath;
-   }
+    case "battle":
+    icon = battleMarker;
+    break;
+    case "archaeological site":
+    icon = archMarker;
+    break;
+    case "explorer":
+    icon = explorerMarker;
+    break;
+    case "earthquake":
+    case "tornado":
+    case "volcano":
+    icon = disasterMarker;
+    break;
+    case "assassination":
+    icon = assassinationMarker;
+    break;
+    case "siege":
+    icon = siegeMarker;
+    break;
+    default:
+    icon = blueMarkerA;
+  }
+
+
     this.state.mostRecentInfoWindow.close();
     // var mark;
     var marker = new google.maps.Marker({
       position: position,
       map: that.state.map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
+      icon: icon
     })
     window.setTimeout(function() {
       var adjusted_scraped_date;
