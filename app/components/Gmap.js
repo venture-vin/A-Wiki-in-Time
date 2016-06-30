@@ -238,7 +238,7 @@ var Gmap = React.createClass({
         geodesic: true,
         editable: true
       });
-
+      bermudaTriangle.setMap(that.state.map);
     })
     $('#polygon-mode').on('click', function(event) {
       event.preventDefault();
