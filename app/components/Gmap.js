@@ -7,6 +7,8 @@ var siegeMarker = require('../images/event-marker-3.png');
 var explorerMarker = require('../images/event-marker-4.png');
 var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
+// window.googleMap = {};
+window.bermudaTriangle = {};
 
 
 var styleArray = [
@@ -137,7 +139,7 @@ var Gmap = React.createClass({
     mostRecentInfoWindow: { close: function(){} },
     mostRecentMarkerWindow: { close: function(){} },
     eventMarkers: [],
-    bermudaTriangle: {},
+    // bermudaTriangle: {},
     // quadCoords: [
     //   {lat: 25.774, lng: -80.190},
     //   {lat: 18.466, lng: -66.118},
@@ -200,7 +202,7 @@ var Gmap = React.createClass({
       {lat: 25.774, lng: -80.190}
     ]
 
-    this.state.bermudaTriangle = new google.maps.Polygon({
+    bermudaTriangle = new google.maps.Polygon({
       paths: quadCoords,
       strokeColor: '#FF0000',
       strokeOpacity: 0.8,
@@ -211,15 +213,15 @@ var Gmap = React.createClass({
       geodesic: true,
       editable: true
     });
-    this.state.bermudaTriangle.setMap(null);
+    bermudaTriangle.setMap(null);
 
     $('#reset-button').on('click', function(event) {
       event.preventDefault();
-      that.state.bermudaTriangle.setMap(null);
+      bermudaTriangle.setMap(null);
       $('#polygon-mode').removeClass('red')
       $('#polygon-input').val('')
       clearMarkers();
-      that.state.bermudaTriangle = new google.maps.Polygon({
+      bermudaTriangle = new google.maps.Polygon({
         paths: quadCoords,
         strokeColor: '#FF0000',
         strokeOpacity: 0.8,
@@ -237,11 +239,11 @@ var Gmap = React.createClass({
       var value = $('#polygon-input').val()
       if (value == ''){
         $('#polygon-input').val('true')
-        that.state.bermudaTriangle.setMap(that.state.map);
+        bermudaTriangle.setMap(that.state.map);
         $('#polygon-mode').addClass('red')
       } else {
         $('#polygon-input').val('')
-        that.state.bermudaTriangle.setMap(null);
+        bermudaTriangle.setMap(null);
         $('#polygon-mode').removeClass('red')
       }
     })

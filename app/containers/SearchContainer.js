@@ -17,14 +17,26 @@ var SearchContainer = React.createClass({
         console.log('err', response);
       } else {
         console.log('success', response);
-        var events = [];
-        var events_array = response.data.events;
-        for (var i = 0; i < response.data.events.length; i++) {
-          var event = events_array[i]
-          var coordinates = {lat: event.latitude, lng: event.longitude};
-          // if (type == 'battles') {
-            events.push(event);
-          // }
+        if (response.data.polygon == true) {
+          var events = []
+          var events_array = response.data.events
+          for (i = 0; i < events_array.length; i++) {
+            var event = events_array[i]
+            var coordinates = {lat: event.latitude, lng: event.longitude}
+
+            var g_coordinates = new google.maps.LatLng(event.latitude, event.longitude)
+            if (google.maps.geometry.poly.containsLocation(g_coordinates, bermudaTriangle) == true) {
+              events.push(event);
+            }
+          }
+        } else {
+          var events = [];
+          var events_array = response.data.events;
+          for (var i = 0; i < response.data.events.length; i++) {
+            var event = events_array[i]
+            var coordinates = {lat: event.latitude, lng: event.longitude};
+              events.push(event);
+          }
         }
         that.props.onUpdate(events)
       }
