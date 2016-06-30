@@ -52,14 +52,14 @@ var Home = React.createClass({
     var sidebarContent = <SidebarResults queryResults={this.state.data} />
       var contentHeader = (
         <NavBarContainer >
-        <span styles={{marginTop: '20em'}}>
+          <span styles={{marginTop: '20em'}}>
           {!this.state.sidebarDocked &&
             <button id="results" className='btn btn-warning-outline btn-lg' type='button'> <a onClick={this.toggleOpen} href="#">Search Results</a></button>}
             </span>
           </NavBarContainer>
           );
     return (
-        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{sidebar: { width: '40%', backgroundImage: "url('./images/skulls.png')"}, content: { overflow: 'unset', height: '70%'}}}
+        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{ sidebar: { width: '40%', height: '100%', backgroundImage: "url('./images/skulls.png')"}, content: {overflowY:'inherit', height: '100%'}}}
           open={this.state.sidebarOpen}
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}

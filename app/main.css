@@ -16,7 +16,7 @@
 #app {
   margin: 0;
   padding: 0;
-  height: 65%;
+  height: 100%;
   width: 100%;
 }
 
@@ -33,19 +33,12 @@
 
 }
 
-body, html, .main-container
-{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
 body {
   background: #F3E9D2;
   background-image: url('./images/old-brown-parchment.png');
   margin: 20px auto 0 auto;
-  width: 90%
+  width: 100%;
+  overflow-y: scroll;
 }
 
 #header {
@@ -136,10 +129,6 @@ a {
   margin-bottom: 1em;
   border-radius: 1em 1em;
   -webkit-border-radius: 1em 1em;
-}
-
-.sidebar {
-  background-image: url('./images/skulls.png')
 }
 
 .card-info {

@@ -163,7 +163,8 @@ var Gmap = React.createClass({
     var gMapCanvasStyles = {
       height: '100%',
       width: '100%',
-      margin: '0px auto'
+      margin: '0px auto',
+      background: 'transparent'
     }
     return (
       <div className="GMap" style={gMapStyles}>
