@@ -1,6 +1,7 @@
 var React = require('react');
 var blueMarkerA = require('../images/blue_MarkerA.png')
 // var initialCenter = {lat: 37.784580, lng: -122.397437};
+var iconPath = '../images/event-markers/event-marker-'
 
 var styleArray = [
 {
@@ -204,6 +205,31 @@ var Gmap = React.createClass({
 
   newAddMarkerWithTimeout: function(position, timeout, battle) {
     var that = this;
+
+    switch (battle.event_type) {
+     case "battle":
+     iconPath += '1.png';
+     break;
+     case "archaeological site":
+     iconPath += '6.png';
+     break;
+     case "explorer":
+     iconPath += '4.png';
+     break;
+     case "earthquake":
+     case "tornado":
+     case "volcano":
+     iconPath += '5.png';
+     break;
+     case "assassination":
+     iconPath += '2.png';
+     break;
+     case "siege":
+     iconPath += '3.png';
+     break;
+     default:
+     iconPath = randomIconPath;
+   }
     this.state.mostRecentInfoWindow.close();
     // var mark;
     var marker = new google.maps.Marker({
