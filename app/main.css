@@ -43,7 +43,8 @@ body {
 #header {
   height: 5%;
   /*text-align: center;*/
-  font-family: 'UnifrakturCook', serif;
+  font-family: 'Sacramento', cursive;
+  font-weight: bolder;
 
 }
 
@@ -53,7 +54,7 @@ body {
 }
 
 #results {
-  font-family: 'UnifrakturCook', serif;
+  font-family: Raleway;
   font-size: 2em;
   margin-right: 20%;
   margin-bottom: 15px;
@@ -151,6 +152,7 @@ form {
   margin-top: 15px;
   font-size: 1.0em;
   margin-bottom: 5px;
+  font-family: Raleway;
 }
 
 option {
@@ -165,30 +167,36 @@ option {
   width
 }*/
 #polygon-mode {
-  font-size: 1.2em;
+  font-size: 1.5em;
   display: inline;
   width: 47%;
   margin-left: 5%;
   background-color: #7AA297;
   font-weight: bolder;
+  font-family: Raleway;
 }
 
 #reset-button {
-  font-size: 1.2em;
+  font-size: 1.5em;
   display: inline;
   width: 47%;
   margin-left: 1%;
   background-color: #7AA297;
-  font-weight: bolder;
+  font-weight: bold;
+  font-family: Raleway;
 }
 
 #submit-button {
+  font-size: 1.5em;
   margin-top: 1%;
   margin-left: 4.5%;
   width: 96%;
   background-color: #8ED081;
+  font-family: Raleway;
 }
 
 option {
   font-size: 4em;
 }
+
+.gm-style-iw

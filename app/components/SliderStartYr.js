@@ -43,7 +43,7 @@ var SliderStartYr = React.createClass({
         min={this.state.min} />
       <b style={{float: 'left'}}>{Math.abs(this.state.min)} BC</b>
       <b style={{float: 'right'}}>{this.state.max} AD</b>
-          <div style={{fontSize: '1.5em', fontWeight: 'bolder', marginLeft: '2%', marginTop: '10px', marginBottom: '15px'}}>
+          <div style={{fontSize: '1.5em', fontFamily: 'Raleway', marginLeft: '2%', marginTop: '10px', marginBottom: '15px'}}>
             Start Year: {Math.abs(newValue)}
           </div>
        <input ref="sliderStart" type="hidden" value={newValue} name="start_year"/>
