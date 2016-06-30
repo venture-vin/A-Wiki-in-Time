@@ -197,6 +197,7 @@ var Gmap = React.createClass({
       googleLng = long;
       // $('#lat-input').val(lat);
       // $('#long-input').val(long);
+      that.props.onUpdate();
       this.infoWindow = that.createInfoWindow(latlng);
     });
 
@@ -238,11 +239,12 @@ var Gmap = React.createClass({
         editable: true
       });
       bermudaTriangle.setMap(that.state.map);
+      that.props.onUpdate();
     })
+    
     $('#polygon-mode').on('click', function(event) {
       event.preventDefault();
-      var value = googlePoly
-      if (value == ''){
+      if (googlePoly === ''){
         googlePoly = 'true';
         bermudaTriangle.setMap(that.state.map);
         $('#polygon-mode').addClass('red')
@@ -251,6 +253,7 @@ var Gmap = React.createClass({
         bermudaTriangle.setMap(null);
         $('#polygon-mode').removeClass('red')
       }
+      that.props.onUpdate();
     })
   },
 

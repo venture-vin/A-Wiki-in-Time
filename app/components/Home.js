@@ -14,8 +14,14 @@ var Home = React.createClass({
       sidebarOpen: false,
       sidebarDocked: false,
       hasQueried: false,
+      updateMap: false,
       data: []
     }
+  },
+
+  handleMapUpdate: function(){
+    this.setState({updateMap: true})
+    this.refs.search.forceUpdate();
   },
 
   onSetSidebarOpen: function(open) {
@@ -66,8 +72,8 @@ var Home = React.createClass({
           style={{width: '70%', height: '100%'}}>
           <div className="element-container">
           <div>{contentHeader}</div>
-          <Gmap initialCenter={initialCenter} ref="map"/>
-          <SearchContainer onUpdate={this.handleUpdate}/>
+          <Gmap initialCenter={initialCenter} ref="map" onUpdate={this.handleMapUpdate}/>
+          <SearchContainer ref="search" onUpdate={this.handleUpdate}/>
           </div>
         </Sidebar>
         )
