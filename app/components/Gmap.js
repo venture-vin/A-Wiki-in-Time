@@ -7,13 +7,7 @@ var siegeMarker = require('../images/event-marker-3.png');
 var explorerMarker = require('../images/event-marker-4.png');
 var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
-var bermudaTriangle;
-var quadCoords = [
-{lat: 25.774, lng: -80.190},
-{lat: 18.466, lng: -66.118},
-{lat: 32.321, lng: -64.757},
-{lat: 25.774, lng: -80.190}
-]
+
 
 var styleArray = [
 {
@@ -143,6 +137,14 @@ var Gmap = React.createClass({
     mostRecentInfoWindow: { close: function(){} },
     mostRecentMarkerWindow: { close: function(){} },
     eventMarkers: [],
+    bermudaTriangle: {},
+    // quadCoords: [
+    //   {lat: 25.774, lng: -80.190},
+    //   {lat: 18.466, lng: -66.118},
+    //   {lat: 32.321, lng: -64.757},
+    //   {lat: 25.774, lng: -80.190}
+    // ]
+
     map: {}
     };
   // static propTypes(){
@@ -191,7 +193,14 @@ var Gmap = React.createClass({
       this.infoWindow = that.createInfoWindow(latlng);
     });
 
-    bermudaTriangle = new google.maps.Polygon({
+    var quadCoords = [
+      {lat: 25.774, lng: -80.190},
+      {lat: 18.466, lng: -66.118},
+      {lat: 32.321, lng: -64.757},
+      {lat: 25.774, lng: -80.190}
+    ]
+
+    this.state.bermudaTriangle = new google.maps.Polygon({
       paths: quadCoords,
       strokeColor: '#FF0000',
       strokeOpacity: 0.8,
@@ -202,15 +211,15 @@ var Gmap = React.createClass({
       geodesic: true,
       editable: true
     });
-    bermudaTriangle.setMap(null);
+    this.state.bermudaTriangle.setMap(null);
 
     $('#reset-button').on('click', function(event) {
       event.preventDefault();
-      bermudaTriangle.setMap(null);
+      that.state.bermudaTriangle.setMap(null);
       $('#polygon-mode').removeClass('red')
       $('#polygon-input').val('')
       clearMarkers();
-      bermudaTriangle = new google.maps.Polygon({
+      that.state.bermudaTriangle = new google.maps.Polygon({
         paths: quadCoords,
         strokeColor: '#FF0000',
         strokeOpacity: 0.8,
@@ -228,11 +237,11 @@ var Gmap = React.createClass({
       var value = $('#polygon-input').val()
       if (value == ''){
         $('#polygon-input').val('true')
-        bermudaTriangle.setMap(map);
+        that.state.bermudaTriangle.setMap(that.state.map);
         $('#polygon-mode').addClass('red')
       } else {
         $('#polygon-input').val('')
-        bermudaTriangle.setMap(null);
+        that.state.bermudaTriangle.setMap(null);
         $('#polygon-mode').removeClass('red')
       }
     })
