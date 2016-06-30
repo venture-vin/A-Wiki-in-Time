@@ -65,7 +65,7 @@ var Home = React.createClass({
           </NavBarContainer>
           );
     return (
-        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{ sidebar: { width: '40%', height: '100%', backgroundImage: "url('http://res.cloudinary.com/dbilvpu6k/image/upload/v1467314226/skulls_t4hbrn.png')"}, content: {overflowY:'inherit', height: '100%'}}}
+        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{ root: {overflowY: 'visible'}, sidebar: { width: '40%', height: '100%', backgroundImage: "url('http://res.cloudinary.com/dbilvpu6k/image/upload/v1467314226/skulls_t4hbrn.png')"}, content: {overflowY:'inherit', height: '100%'}}}
           open={this.state.sidebarOpen}
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}
