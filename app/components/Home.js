@@ -37,41 +37,39 @@ var Home = React.createClass({
     if(google) {
       this.setState({isLoaded: true});
     }
-    var mql = window.matchMedia(`(min-width: 800px)`);
-    mql.addListener(this.mediaQueryChanged);
-    this.setState({mql: mql, sidebarDocked: mql.matches});
+    // var mql = window.matchMedia(`(min-width: 800px)`);
+    // mql.addListener(this.mediaQueryChanged);
+    // this.setState({mql: mql, sidebarDocked: mql.matches});
   },
-
-  componentWillUnmount: function() {
-    this.state.mql.removeListener(this.mediaQueryChanged);
-  },
-
-  mediaQueryChanged: function() {
-    this.setState({sidebarDocked: this.state.mql.matches});
-  },
+  //
+  // componentWillUnmount: function() {
+  //   this.state.mql.removeListener(this.mediaQueryChanged);
+  // },
+  //
+  // mediaQueryChanged: function() {
+  //   this.setState({sidebarDocked: this.state.mql.matches});
+  // },
 
   toggleOpen(ev) {
-    console.log('clicked', ev);
-    this.setState({sidebarOpen: !this.state.sidebarOpen});
-
     if (ev) {
       ev.preventDefault();
     }
+    this.setState({sidebarOpen: !this.state.sidebarOpen});
+
   },
 
 
   render() {
-    var sidebarContent = <SidebarResults
-      queryResults={this.state.data} />
+    var sidebarContent = <SidebarResults queryResults={this.state.data} />
       var contentHeader = (
         <span>
           {!this.state.sidebarDocked &&
             <a onClick={this.toggleOpen} href="#" style={{fontSize: '3em'}}>=</a>}
               <NavBarContainer />
             </span>);
-            if(this.state.hasQueried){
+            // if(this.state.hasQueried){
     return (
-        <Sidebar sidebar={sidebarContent} styles={{sidebar: { width: '30%'}}}
+        <Sidebar className="sidebar" sidebar={sidebarContent} styles={{sidebar: { width: '30%'}, content: { overflow: 'unset', height: '70%'}}}
           open={this.state.sidebarOpen}
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}
@@ -82,15 +80,15 @@ var Home = React.createClass({
           <SearchContainer onUpdate={this.handleUpdate}/>
         </Sidebar>
         )
-      }
-
-      return (
-        <div style={{width: '100%', height: '100%'}}>
-          <NavBarContainer />
-          <Gmap initialCenter={initialCenter} ref="map"/>
-          <SearchContainer onUpdate={this.handleUpdate}/>
-        </div>
-      )
+      // }
+      //
+      // return (
+      //   <div style={{width: '100%', height: '100%'}}>
+      //     <NavBarContainer />
+      //     <Gmap initialCenter={initialCenter} ref="map"/>
+      //     <SearchContainer onUpdate={this.handleUpdate}/>
+      //   </div>
+      // )
       }
     });
 

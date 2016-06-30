@@ -71,7 +71,7 @@ body {
   float: right;
   margin-top: 15px;
   margin-right: 10px;
-  font-size: 2em; 
+  font-size: 2em;
 }
 .header-div {
   display: inline-block;
@@ -137,4 +137,13 @@ body {
   margin-bottom: 1em;
   border-radius: 1em 1em;
   -webkit-border-radius: 1em 1em;
+}
+
+.sidebar {
+  background-image: url('./images/skulls/skulls.png')
+}
+
+.card-info {
+  overflow: hidden;
+  height: 200px;
 }
