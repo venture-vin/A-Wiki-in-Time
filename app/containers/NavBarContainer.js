@@ -16,7 +16,7 @@ var NavBarContainer = React.createClass({
     return(
       <nav className="navbar">
         {/*<div className="container">*/}
-          <div id='header' className="col-center">
+          <div id='header'>
             {React.cloneElement(this.props.children)}
             <span className='header-div'><a href='/'>A </a></span>
             <span className='header-div' id='wiki-header'><a href='/'>WiKi</a></span>

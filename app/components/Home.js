@@ -58,7 +58,7 @@ var Home = React.createClass({
     var sidebarContent = <SidebarResults queryResults={this.state.data} />
       var contentHeader = (
         <NavBarContainer >
-          <span styles={{marginTop: '20em'}}>
+          <span id="result-btn" styles={{marginTop: '20em'}}>
           {!this.state.sidebarDocked &&
             <button id="results" className='btn btn-warning-outline btn-lg' type='button'> <a onClick={this.toggleOpen} href="#">Search Results</a></button>}
             </span>

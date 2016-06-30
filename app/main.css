@@ -42,26 +42,30 @@ body {
 
 #header {
   height: 5%;
-  text-align: center;
+  /*text-align: center;*/
   font-family: 'UnifrakturCook', serif;
-  /*margin: 0px auto;*/
-  /*transition: 0.3s ease;*/
+
+}
+
+#result-button{
+  float: left;
+  margin-bottom: 10px;
 }
 
 #results {
-  margin-top: 15px;
   font-family: 'UnifrakturCook', serif;
   font-size: 2em;
-  margin-left: 20px;
+  margin-right: 20%;
+  margin-bottom: 15px;
+  margin-left: 10px;
   background-color: #F3E9D2;
-  float: left;
 }
 
 .header-div {
   display: inline-block;
   transition: 0.3s ease;
   font-size: 4em;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .header-div a {
@@ -119,6 +123,8 @@ body {
   margin-bottom: 1em;
   border-radius: 1em 1em;
   -webkit-border-radius: 1em 1em;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .card-info {
@@ -128,10 +134,53 @@ body {
   height: 200px;
 }
 
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .element-container {
-  height: 70%;
+  height: 58%;
 }
 
 .element-container a {
   color: inherit;
+}
+
+form {
+  margin-top: 15px;
+  font-size: 1.0em;
+  margin-bottom: 5px;
+}
+
+option {
+    font-size: 1.5em;
+}
+
+#polygon-group {
+  width: 100%;
+  vertical-align: middle;
+}
+/*#form-group {
+  width
+}*/
+#polygon-mode {
+  font-size: 1.5em;
+  display: inline;
+  width: 47%;
+  margin-left: 5%;
+  margin-top: 1%;
+}
+
+#reset-button {
+  font-size: 1.5em;
+  display: inline;
+  width: 47%;
+  margin-left: 1%;
+}
+
+#submit-button {
+  margin-left: 4.5%;
+  width: 96%
+
 }
