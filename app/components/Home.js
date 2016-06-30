@@ -64,10 +64,11 @@ var Home = React.createClass({
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}
           style={{width: '70%', height: '100%'}}>
+          <div className="element-container">
           <div>{contentHeader}</div>
-
           <Gmap initialCenter={initialCenter} ref="map"/>
           <SearchContainer onUpdate={this.handleUpdate}/>
+          </div>
         </Sidebar>
         )
       }

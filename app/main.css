@@ -38,7 +38,6 @@ body {
   background-image: url('./images/old-brown-parchment.png');
   margin: 20px auto 0 auto;
   width: 100%;
-  overflow-y: scroll;
 }
 
 #header {
@@ -47,13 +46,6 @@ body {
   font-family: 'UnifrakturCook', serif;
   /*margin: 0px auto;*/
   /*transition: 0.3s ease;*/
-}
-
-#container > div > span > button {
-  display: inline-block;
-}
-a {
-  color: black;
 }
 
 #results {
@@ -79,12 +71,11 @@ a {
 
 #header:hover {
   /*transform: scale(1.5, 1.5);*/
-
 }
+
 .header-div:hover {
   transform: scale(1.5, 1.5);
   color: goldenrod;
-
 }
 
 #date-slider {
@@ -103,7 +94,6 @@ a {
   margin-bottom: 2%;
 }
 #textInput {
-
   color: red;
 }
 
@@ -134,4 +124,12 @@ a {
 .card-info {
   overflow: hidden;
   height: 200px;
+}
+
+.element-container {
+  height: 70%;
+}
+
+.element-container a {
+  color: inherit;
 }
