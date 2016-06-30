@@ -9,10 +9,9 @@ var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
 // window.googleMap = {};
 window.bermudaTriangle = {};
-window.googleLat = 0;
-window.googleLng = 0;
+window.googleLat = 37.784580;
+window.googleLng = -122.397437;
 window.googlePoly = '';
-
 
 var styleArray = [
 {
