@@ -1,13 +1,12 @@
 var React = require('react');
-var blueMarkerA = require('../images/blue_MarkerA.png')
-// var initialCenter = {lat: 37.784580, lng: -122.397437};
 var battleMarker = require('../images/event-marker-1.png');
 var assassinationMarker = require('../images/event-marker-2.png');
 var siegeMarker = require('../images/event-marker-3.png');
 var explorerMarker = require('../images/event-marker-4.png');
 var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
-// window.googleMap = {};
+var searchMarker = require('../images/search-marker.png');
+
 window.bermudaTriangle = {};
 window.googleLat = 37.784580;
 window.googleLng = -122.397437;
@@ -306,7 +305,7 @@ var Gmap = React.createClass({
     icon = siegeMarker;
     break;
     default:
-    icon = blueMarkerA;
+    icon = searchMarker;
   }
 
 
@@ -371,7 +370,7 @@ var Gmap = React.createClass({
       position: this.mapCenter(),
       map: this.map,
       draggable: true,
-      icon: blueMarkerA
+      icon: searchMarker
     })
   },
 
