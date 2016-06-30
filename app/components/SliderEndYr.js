@@ -44,9 +44,9 @@ var SliderEndYr = React.createClass({
         min={this.state.min} />
       <b style={{float: 'left'}}>{Math.abs(this.state.min)} BC</b>
       <b style={{float: 'right'}}>{this.state.max} AD</b>
-        <br />
-       End Year: {Math.abs(newValue)}
-       <br /><br />
+        <div style={{fontSize: '1.5em', fontWeight: 'bolder', marginTop: '10px', marginBottom: '15px'}}>
+          End Year: {Math.abs(newValue)}
+        </div>
        <input ref="sliderEnd" type="hidden" value={newValue} name="end_year"/>
       </div>
     )

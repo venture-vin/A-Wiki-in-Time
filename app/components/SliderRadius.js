@@ -41,9 +41,9 @@ var SliderRadius = React.createClass({
         min={this.state.min} />
       <b style={{float: 'left'}}>{this.state.min} km</b>
       <b style={{float: 'right'}}>{this.state.max} km</b>
-        <br />
-       Radius: {newValue}
-       <br /><br />
+        <div style={{fontSize: '1.5em', fontWeight: 'bolder', marginTop: '10px', marginBottom: '15px'}}>
+          Radius: {newValue}
+       </div>
        <input ref="sliderRad" type="hidden" value={newValue} name="radius"/>
       </div>
     )

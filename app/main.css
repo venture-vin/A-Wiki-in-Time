@@ -165,22 +165,30 @@ option {
   width
 }*/
 #polygon-mode {
-  font-size: 1.5em;
+  font-size: 1.2em;
   display: inline;
   width: 47%;
   margin-left: 5%;
-  margin-top: 1%;
+  background-color: #7AA297;
+  font-weight: bolder;
 }
 
 #reset-button {
-  font-size: 1.5em;
+  font-size: 1.2em;
   display: inline;
   width: 47%;
   margin-left: 1%;
+  background-color: #7AA297;
+  font-weight: bolder;
 }
 
 #submit-button {
+  margin-top: 1%;
   margin-left: 4.5%;
-  width: 96%
+  width: 96%;
+  background-color: #8ED081;
+}
 
+option {
+  font-size: 4em;
 }

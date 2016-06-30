@@ -13,12 +13,14 @@ function SubmitForm(props){
           <form onSubmit={props.onFormSubmit}>
             <div className="form-group">
               <select className="form-control" name="type">
+                <optgroup>
                 <option value="battles">Battles</option>
                 <option value='archaeological_sites'>Archaeological Sites</option>
                 <option value='assassinations'>Assassinations</option>
                 <option value='natural_disasters'>Natural Disasters</option>
                 <option value='explorers'>Explorers</option>
                 <option value='other'>All Types</option>
+                </optgroup>
               </select>
               <br /><br />
               <SliderStartYr />
@@ -28,8 +30,8 @@ function SubmitForm(props){
               <input id='lat-input' type='hidden' name='lat' value={googleLat} />
               <input id='long-input' type='hidden' name='long' value={googleLng} />
                 <div id='polygon-group' className="row">
-                 <button id='polygon-mode' className="btn btn-block btn-info">Polygon Mode</button>
-                 <button id='reset-button' className="btn btn-block btn-info">Reset</button>
+                 <button id='polygon-mode' className="btn">Polygon Mode</button>
+                 <button id='reset-button' className="btn">Reset</button>
                  <input id='submit-button'
                    className="btn btn-block btn-success btn-lg"
                    type="submit" value="Submit" />
