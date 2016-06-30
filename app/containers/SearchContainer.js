@@ -10,7 +10,7 @@ var SearchContainer = React.createClass({
     var data = $('form').serialize();
     axios({
       method: 'post',
-      url: 'http://localhost:3000/query',
+      url: 'https://a-wiki-in-time-backend.herokuapp.com/query',
       data: data
     }).then(function(response){
       if (!!response.error) {
