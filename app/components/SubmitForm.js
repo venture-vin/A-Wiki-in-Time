@@ -14,7 +14,11 @@ function SubmitForm(props){
             <div className="form-group">
               <select className="form-control" name="type">
                 <option value="battles">Battles</option>
-                <option value="other">Other</option>
+                <option value='archaeological_sites'>Archaeological Sites</option>
+                <option value='assassinations'>Assassinations</option>
+                <option value='natural_disasters'>Natural Disasters</option>
+                <option value='explorers'>Explorers</option>
+                <option value='other'>All Types</option>
               </select>
               <br /><br />
               <SliderStartYr />
@@ -32,8 +36,6 @@ function SubmitForm(props){
         </div>
       </div>
     )
-
-
 }
 
 
