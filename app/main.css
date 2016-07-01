@@ -42,8 +42,8 @@ body {
 
 #header {
   height: 5%;
-  /*text-align: center;*/
-  font-family: 'Sacramento', 'Endor', cursive;
+  text-align: center;
+  font-family: 'Endor', 'Sacramento', cursive;
   font-weight: bolder;
 
 }
@@ -56,8 +56,8 @@ body {
 #results {
   font-family: Raleway;
   font-size: 2em;
-  margin-right: 20%;
-  margin-bottom: 15px;
+  float: left;
+  margin-top: 20px; 
   margin-left: 10px;
   background-color: #F3E9D2;
 }

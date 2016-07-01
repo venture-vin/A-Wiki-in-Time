@@ -7,10 +7,10 @@ var styles = {
   space: {
     marginTop: '25px'
   },
-
-  font: {
-    fontFamily: 'Endor'
-  }, 
+  //
+  // font: {
+  //   fontFamily: 'Endor'
+  // },
 }
 
 
