@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Sacramento';
+  src: url('/fonts/Sacramento.ttf');
+}
 .appear-enter {
   transition-duration: .7s;
   transition-property: opacity;
