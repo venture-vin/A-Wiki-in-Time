@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Sacramento';
-  src: url('/public/Sacramento.ttf');
+  src: url('/public/Sacramento-Regular.ttf');
 }
 .appear-enter {
   transition-duration: .7s;
