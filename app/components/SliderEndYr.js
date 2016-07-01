@@ -34,6 +34,13 @@ var SliderEndYr = React.createClass({
 
   render(){
     var newValue = this.state.currentValue;
+    var endYear = function(){
+      if (newValue < 0) {
+      return "End Year: " + Math.abs(newValue) + " BC"
+      } else {
+      return "End Year: " + Math.abs(newValue) + " AD"
+      }
+    }; 
     return(
       <div id="slider-details" >
         <ReactNativeBootstrapSlider
@@ -45,7 +52,7 @@ var SliderEndYr = React.createClass({
       <b style={{float: 'left'}}>{Math.abs(this.state.min)} BC</b>
       <b style={{float: 'right'}}>{this.state.max} AD</b>
         <div style={{fontSize: '1.5em', fontFamily: 'Raleway', marginTop: '10px', marginBottom: '15px'}}>
-          End Year: {Math.abs(newValue)}
+          {endYear()}
         </div>
        <input ref="sliderEnd" type="hidden" value={newValue} name="end_year"/>
       </div>
