@@ -223,7 +223,9 @@ var Gmap = React.createClass({
           geodesic: true,
           editable: true
         });
-        bermudaTriangle.setMap(that.state.map);
+        if (googlePoly === 'true') {
+          bermudaTriangle.setMap(that.state.map);
+        }
         that.props.onUpdate();
       })
 
