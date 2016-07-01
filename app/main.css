@@ -63,7 +63,8 @@ body {
   float: left;
   margin-top: 20px;
   margin-left: 10px;
-  background-color: #F3E9D2;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2%;
 }
 
 #instructions{
@@ -72,7 +73,8 @@ body {
   float: left;
   margin-top: 20px;
   margin-left: 10px;
-  background-color: #F3E9D2;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2%;
 }
 
 .header-div {
