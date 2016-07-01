@@ -140,8 +140,7 @@ var Gmap = React.createClass({
     mostRecentInfoWindow: { close: function(){} },
     mostRecentMarkerWindow: { close: function(){} },
     eventMarkers: [],
-    minZoom: 4
-
+    minZoom: 4,
     map: {}
     };
 
