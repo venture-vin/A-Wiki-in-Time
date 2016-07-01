@@ -154,8 +154,10 @@ body {
 form {
   margin-top: 15px;
   font-size: 1.0em;
-  margin-bottom: 5px;
   font-family: Raleway;
+  padding: 4em;
+  padding-bottom: 1em;
+  background: rgba(255,255,255,0.5);
 }
 
 option {
