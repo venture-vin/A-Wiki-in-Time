@@ -9,8 +9,8 @@ var styles = {
   },
 
   font: {
-    fontFamily: endor
-  }
+    fontFamily: 'Endor'
+  }, 
 }
 
 

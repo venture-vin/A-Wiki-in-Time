@@ -140,19 +140,11 @@ var Gmap = React.createClass({
     mostRecentInfoWindow: { close: function(){} },
     mostRecentMarkerWindow: { close: function(){} },
     eventMarkers: [],
-    // bermudaTriangle: {},
-    // quadCoords: [
-    //   {lat: 25.774, lng: -80.190},
-    //   {lat: 18.466, lng: -66.118},
-    //   {lat: 32.321, lng: -64.757},
-    //   {lat: 25.774, lng: -80.190}
-    // ]
+    minZoom: 4
 
     map: {}
     };
-  // static propTypes(){
-  //   initialCenter: React.PropTypes.objectOf(React.PropTypes.number).isRequired
-  // },
+
   },
   render: function() {
     var gMapStyles = {
@@ -240,7 +232,7 @@ var Gmap = React.createClass({
       bermudaTriangle.setMap(that.state.map);
       that.props.onUpdate();
     })
-    
+
     $('#polygon-mode').on('click', function(event) {
       event.preventDefault();
       if (googlePoly === ''){
