@@ -20,7 +20,7 @@ var Home = React.createClass({
   },
 
   handleMapUpdate: function(){
-    this.setState({updateMap: true})
+    // this.setState({updateMap: true})
     this.refs.search.forceUpdate();
   },
 
