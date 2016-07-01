@@ -233,11 +233,11 @@ var Gmap = React.createClass({
         if (googlePoly === ''){
           googlePoly = 'true';
           bermudaTriangle.setMap(that.state.map);
-          $('#polygon-mode').addClass('red')
+          $('#polygon-mode').addClass('btn-warning')
         } else {
           googlePoly = ''
           bermudaTriangle.setMap(null);
-          $('#polygon-mode').removeClass('red')
+          $('#polygon-mode').removeClass('btn-warning')
         }
         that.props.onUpdate();
       })
