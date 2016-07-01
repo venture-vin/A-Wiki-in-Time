@@ -6,6 +6,8 @@ var SliderRadius = require('../components/SliderRadius');
 var styles = require('../styles');
 var ReactDOM = require('react-dom');
 
+var easter_egg = new Konami(function() { alert('Konami Code!')});
+
 function SubmitForm(props){
     return(
 
