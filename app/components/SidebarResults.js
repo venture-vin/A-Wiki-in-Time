@@ -1,5 +1,11 @@
 var React = require('react');
 var searchMarker = require('../images/search-marker.png');
+var battleMarker = require('../images/event-marker-1.png');
+var assassinationMarker = require('../images/event-marker-2.png');
+var siegeMarker = require('../images/event-marker-3.png');
+var explorerMarker = require('../images/event-marker-4.png');
+var disasterMarker = require('../images/event-marker-5.png');
+var archMarker = require('../images/event-marker-6.png');
 
 var SidebarResults = React.createClass({
   render: function(){
@@ -37,6 +43,15 @@ var SidebarResults = React.createClass({
           <li>Click on a polygon button as an alternative to selecting radius</li>
           <li>Drag anywhere on the map and click submit</li>
         </ol>
+        <h3>Legend:</h3>
+        <ul>
+          <li><img src={battleMarker} /> - Battles Marker</li>
+          <li><img src={assassinationMarker} /> - Assassinations Marker</li>
+          <li><img src={siegeMarker} /> - Sieges Marker</li>
+          <li><img src={explorerMarker} /> - Explorers Marker</li>
+          <li><img src={disasterMarker} /> - Natural Disasters Marker</li>
+          <li><img src={archMarker} /> - Archaeological Sites Marker</li>
+        </ul>
       </div>
     )
   }
