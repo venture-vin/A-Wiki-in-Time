@@ -313,9 +313,15 @@ var Gmap = React.createClass({
           adjusted_scraped_date = battle.scraped_date
         }
 
+        if (adjusted_scraped_date === null) {
+          var infoWindow = new google.maps.InfoWindow({
+            content: "<strong>Title:</strong> " + battle.title + "<br><strong>Description: </strong>" + battle.description + "<br><strong>Wiki URL:</strong> <a href=" + battle.event_url + " target='_blank'> " + battle.event_url + "</a>"
+        })
+        } else {
         var infoWindow = new google.maps.InfoWindow({
           content: "<strong>Title:</strong> " + battle.title + "<br><strong>Description: </strong>" + battle.description + "<br><strong>Date:</strong> " + adjusted_scraped_date + "<br><strong>Wiki URL:</strong> <a href=" + battle.event_url + " target='_blank'> " + battle.event_url + "</a>"
         })
+        }
         marker.addListener('click', function() {
           that.state.mostRecentMarkerWindow.close();
           infoWindow.open(that.map, marker);
