@@ -43,9 +43,13 @@ body {
 #header {
   height: 5%;
   text-align: center;
-  font-family: 'Endor', 'Sacramento', cursive;
+  font-family: 'Sacramento', cursive;
   font-weight: bolder;
 
+}
+
+#title{
+  margin-right: 20%;
 }
 
 #result-button{
@@ -54,10 +58,19 @@ body {
 }
 
 #results {
-  font-family: Raleway;
+  font-family: 'Raleway';
   font-size: 2em;
   float: left;
-  margin-top: 20px; 
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: #F3E9D2;
+}
+
+#instructions{
+  font-family: 'Raleway';
+  font-size: 2em;
+  float: left;
+  margin-top: 20px;
   margin-left: 10px;
   background-color: #F3E9D2;
 }
@@ -134,13 +147,13 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 200px;
-  font-family: Raleway;
+  font-family: 'Raleway';
 }
 
 .card-text {
   overflow: hidden;
   text-overflow: ellipsis;
-  /*font-family: Raleway;*/
+  /*font-family: 'Raleway';*/
 }
 
 .element-container {
@@ -155,7 +168,7 @@ form {
   margin-top: 15px;
   font-size: 1.0em;
   margin-bottom: 5px;
-  font-family: Raleway;
+  font-family: 'Raleway';
 }
 
 option {
@@ -169,6 +182,11 @@ option {
 /*#form-group {
   width
 }*/
+.red {
+  background-color: red;
+  color: goldenrod;
+}
+
 #polygon-mode {
   font-size: 1.5em;
   display: inline;
@@ -176,7 +194,7 @@ option {
   margin-left: 5%;
   background-color: #7AA297;
   font-weight: bolder;
-  font-family: Raleway;
+  font-family: 'Raleway';
 }
 
 #reset-button {
@@ -186,7 +204,7 @@ option {
   margin-left: 1%;
   background-color: #7AA297;
   font-weight: bold;
-  font-family: Raleway;
+  font-family: 'Raleway';
 }
 
 #submit-button {
@@ -195,7 +213,7 @@ option {
   margin-left: 4.5%;
   width: 96%;
   background-color: #8ED081;
-  font-family: Raleway;
+  font-family: 'Raleway';
 }
 
 option {
@@ -203,5 +221,15 @@ option {
 }
 
 .gm-style-iw {
-  font-family: Raleway;
+  font-family: 'Raleway';
+}
+
+#instructions-content {
+  font-family: 'Raleway';
+  font-size: 1.5em;
+  margin-left: 15px;
+}
+
+.attention {
+  color: red;
 }
