@@ -15,7 +15,8 @@ var Home = React.createClass({
       sidebarDocked: false,
       hasQueried: false,
       updateMap: false,
-      data: []
+      data: [],
+
     }
   },
 
@@ -46,16 +47,22 @@ var Home = React.createClass({
   },
 
   toggleOpen(ev) {
+    if ($(ev.target).html() === 'Instructions') {
+      this.refs.sidebar.showQueryResults();
+    } else {
+      this.refs.sidebar.showInstructions();
+    };
     if (ev) {
       ev.preventDefault();
     }
+
     this.setState({sidebarOpen: !this.state.sidebarOpen});
 
   },
 
 
   render() {
-    var sidebarContent = <SidebarResults queryResults={this.state.data} />
+    var sidebarContent = <SidebarResults ref="sidebar" queryResults={this.state.data} />
       var contentHeader = (
         <NavBarContainer >
           <span id="result-btn" styles={{marginTop: '20em'}}>

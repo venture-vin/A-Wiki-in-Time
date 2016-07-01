@@ -8,8 +8,23 @@ var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
 
 var SidebarResults = React.createClass({
+
+  getInitialState() {
+    return {
+      openInstructions: true,
+    }
+  },
+
+  showQueryResults() {
+    this.setState({openInstructions: false})
+  },
+
+  showInstructions() {
+    this.setState({openInstructions: true})
+  },
+
   render: function(){
-    if (this.props.queryResults.length > 0){
+    if (this.state.openInstructions){
       return (
             <ul className="list-unstyled">
               {this.props.queryResults.map(function(event) {
