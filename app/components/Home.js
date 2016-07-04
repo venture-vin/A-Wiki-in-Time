@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 // var SubmitForm = require('../components/SubmitForm');
 var Gmap = require('../components/Gmap');
 var initialCenter = {lat: 37.784580, lng: -122.397437};
