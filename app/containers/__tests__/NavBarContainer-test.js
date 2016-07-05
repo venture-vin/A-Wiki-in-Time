@@ -17,6 +17,11 @@ describe('NavBarContainer', () => {
     const navbarNode = ReactDOM.findDOMNode(navbar);
 
     expect(navbarNode.textContent).toEqual('ContentA Wikiin Time');
+    expect(navbarNode.tagName).toBe('NAV');
+    expect(navbarNode.classList.contains('navbar')).toEqual(true);
 
+    var spans = navbarNode.querySelectorAll('span');
+
+    expect(spans.length).toBe(5);
   });
 });
