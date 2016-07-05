@@ -7,7 +7,6 @@ import SidebarResults from '../SidebarResults';
 
 describe('SidebarResults', () => {
   it('renders the component', () => {
-    // var sidebarContent = <SidebarResults ref="sidebar" queryResults={this.state.data} />
     const sidebarResults = TestUtils.renderIntoDocument(
       <SidebarResults queryResults={[]}/>
     );
