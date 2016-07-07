@@ -1,5 +1,5 @@
-var React = require('react');
-var styles = require('../styles');
+import React from 'react';
+import styles from '../styles';
 
 var NavBarContainer = React.createClass({
   render(){
