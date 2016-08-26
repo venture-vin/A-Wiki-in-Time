@@ -1,4 +1,4 @@
-const alt = require('alt');
+const alt = require('../shared/alt');
 
 // const EventActions = {
 //   fetchEventsCompleted: function (response) {

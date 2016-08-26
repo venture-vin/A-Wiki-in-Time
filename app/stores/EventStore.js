@@ -1,4 +1,4 @@
-const alt = require('alt')
+const alt = require('../shared/alt')
 const EventActions = require('../actions/EventActions')
 const EventSource = require('../sources/EventSource')
 

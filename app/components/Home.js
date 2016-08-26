@@ -6,6 +6,9 @@ var SearchContainer = require('../containers/SearchContainer');
 var Sidebar = require('react-sidebar').default;
 var NavBarContainer = require('../containers/NavBarContainer');
 var SidebarResults = require('../components/SidebarResults');
+var alt = require('../shared/alt');
+var connectToStores = require('alt-utils/lib/connectToStores');
+var EventStore = require('../stores/EventStore');
 
 var Home = React.createClass({
   getInitialState() {
@@ -93,4 +96,7 @@ var Home = React.createClass({
       }
     });
 
-        module.exports = Home;
+Home.getStores = function () { return [EventStore] };
+Home.getPropsFromStores = function () { return EventStore.getState().events }
+
+module.exports = connectToStores(Home);
