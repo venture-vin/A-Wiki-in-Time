@@ -8,4 +8,5 @@ const alt = require('../shared/alt');
 
 export default alt.generateActions(
   'fetchEventsCompleted',
+  'fetchEventsFailed'
 )

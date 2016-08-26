@@ -8,7 +8,7 @@ class EventStore {
     // this.loading = false;
     this.bindActions(EventActions)
     this.handleAsync(EventSource)
-  }
+  },
 
   onFetchEventsCompleted: function (response) {
     if (!!response.error) {
@@ -37,7 +37,11 @@ class EventStore {
           events.push(event);
         }
       }
-    },
+    }
+  },
+
+  onFetchEventsFailed(err) {
+    console.log('failure', err)
   }
 
   // the vanilla flux way
