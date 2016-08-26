@@ -3,14 +3,14 @@ const EventActions = require('../actions/EventActions')
 const EventSource = require('../sources/EventSource')
 
 class EventStore {
-  constructor () {
+  constructor() {
     this.events = {};
     // this.loading = false;
     this.bindActions(EventActions)
     this.handleAsync(EventSource)
-  },
+  }
 
-  onFetchEventsCompleted: function (response) {
+  onFetchEventsCompleted(response) {
     if (!!response.error) {
       console.log('err', response);
     } else {
@@ -38,7 +38,7 @@ class EventStore {
         }
       }
     }
-  },
+  }
 
   onFetchEventsFailed(err) {
     console.log('failure', err)

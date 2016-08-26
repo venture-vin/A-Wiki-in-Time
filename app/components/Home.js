@@ -96,7 +96,7 @@ var Home = React.createClass({
       }
     });
 
-Home.getStores = function () { return [EventStore] };
+Home.getStores = function () { debugger; return [EventStore]; alt };
 Home.getPropsFromStores = function () { return EventStore.getState().events }
 
 module.exports = connectToStores(Home);
