@@ -246,7 +246,7 @@ var Gmap = React.createClass({
 
     },
 
-    componentDidUnMount: function() {
+    componentDidUnmount: function() {
       google.maps.event.clearListeners(map, 'zoom_changed')
     },
 
