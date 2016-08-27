@@ -9,6 +9,10 @@
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node ./app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/venture-vin/A-Wiki-in-Time"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
