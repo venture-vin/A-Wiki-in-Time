@@ -4,41 +4,34 @@ import EventSource from '../sources/EventSource'
 
 class EventStore {
   constructor() {
-    this.events = []
-    this.errors = []
+    this.events = {}
     this.loading = false
+    this.errors = []
     this.bindActions(EventActions)
     this.registerAsync(EventSource)
   }
 
-  onFetchEventsCompleted(response) {
-    if (!!response.error) {
-      console.log('err', response);
-    } else {
-      console.log('success', response);
-      if (response.data.polygon == true) {
-        var events = []
-        var events_array = response.data.events
-        for (i = 0; i < events_array.length; i++) {
-          var event = events_array[i]
-          var coordinates = {lat: event.latitude, lng: event.longitude}
-          var id = {id: event.id}
+  onFetchEvents() {
+    this.setState({ errors: [], loading: true })
+  }
 
-          var g_coordinates = new google.maps.LatLng(event.latitude, event.longitude)
-          if (google.maps.geometry.poly.containsLocation(g_coordinates, bermudaTriangle) == true) {
-            events.push(event);
-          }
-        }
+  onFetchEventsCompleted(response) {
+    let events = []
+    const fetchedEvents = response.data.events
+    if (response.error) {
+      console.log('err', response)
+    } else {
+      console.log('success', response)
+      if (response.data.polygon == true) {
+        events = fetchedEvents.filter((event) => {
+          const eventCoordinates = new google.maps.LatLng(event.latitude, event.longitude)
+          return google.maps.geometry.poly.containsLocation(eventCoordinates, bermudaTriangle)
+        })
       } else {
-        var events = [];
-        var events_array = response.data.events;
-        for (var i = 0; i < response.data.events.length; i++) {
-          var event = events_array[i]
-          var coordinates = {lat: event.latitude, lng: event.longitude};
-          events.push(event);
-        }
+        events = fetchedEvents
       }
     }
+    this.setState({ events: events, loading: false })
   }
 
   onFetchEventsFailed(err) {
