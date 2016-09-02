@@ -1,3 +1,5 @@
+var path = require('path')
+var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
@@ -6,16 +8,25 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  debug: true,
+  devtool: 'source-map',
   entry: [
+    'webpack-dev-server/client?http://localhost:8080', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './app/index.js'
   ],
   output: {
-    path: __dirname + '/dist',
-    filename: "index_bundle.js"
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/public/'
   },
+  plugins: [
+    HTMLWebpackPluginConfig,
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
       { test: /\.css$/, loader: "style-loader!css-loader" },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
@@ -24,10 +35,13 @@ module.exports = {
           'image-webpack'
         ]
       },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loaders: [
-        'file?name=/fonts/endor/[name].[ext]', 
-        "file-loader"  ]  }
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loaders: [
+          'file?name=/fonts/endor/[name].[ext]', 
+          "file-loader"
+        ]
+      }
     ]
-  },
-  plugins: [HTMLWebpackPluginConfig]
+  }
 };
