@@ -6,7 +6,7 @@ var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 
 var Main = require('../components/Main');
-var Home = require('../components/Home');
+var Home = require('../components/Home').default;
 // var Test = require('../components/Test');
 // var SubmitForm = require('../components/SubmitForm');
 
