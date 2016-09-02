@@ -7,7 +7,7 @@ export default EventSource = {
     remote: function (state, data) {
       return axios({
         method: 'post',
-        url: 'https://a-wiki-in-time-backend.herokuapp.com/query',
+        url: 'https://a-wiki-in-time-api.herokuapp.com/query',
         data: data
       })
     },

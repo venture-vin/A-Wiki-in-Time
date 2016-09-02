@@ -24,7 +24,7 @@ var SidebarResults = React.createClass({
   },
 
   render: function(){
-    if (this.state.openInstructions){
+    if (!this.state.openInstructions){
       return (
             <ul className="list-unstyled">
               {this.props.queryResults.map(function(event) {
