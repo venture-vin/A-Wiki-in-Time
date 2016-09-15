@@ -4,7 +4,7 @@ import EventSource from '../sources/EventSource'
 
 class EventStore {
   constructor() {
-    this.events = {}
+    this.events = []
     this.loading = false
     this.errors = []
     this.bindActions(EventActions)

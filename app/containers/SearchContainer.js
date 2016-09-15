@@ -3,7 +3,7 @@ var SubmitForm = require('../components/SubmitForm');
 var axios = require('axios');
 var PropTypes = React.PropTypes;
 var EventStore = require('../stores/EventStore').default;
-var connectToStores = require('alt-utils/connectToStores');
+var connectToStores = require('alt-utils/lib/connectToStores');
 
 // getStores
 // getPropsFromStores
@@ -57,8 +57,10 @@ var SearchContainer = React.createClass({
     router: React.PropTypes.object.isRequired
   },
 
-  componentDidUpdate() {
-
+  componentWillReceiveProps(new_props) {
+    if (this.props.events !== new_props.events) {
+      this.props.onUpdate(new_props.events);
+    }
   },
 
   queryAgain() {
@@ -74,8 +76,22 @@ var SearchContainer = React.createClass({
   }
 });
 
+SearchContainer.getStores = function() {
+  return [EventStore];
+}
+
+SearchContainer.getPropsFromStores = function() {
+  return EventStore.getState()
+  // return { events: EventStore.getState(), widgets: WidgetStore.getState() } ; <-- a way to call on props from multiple stores to only get specific ones
+  // if (this.props.widgets.widgets)
+}
+
 SearchContainer.propTypes = {
   onUpdate: PropTypes.func.isRequired
 }
 
-module.exports = SearchContainer;
+module.exports = connectToStores(SearchContainer);
+
+// <StatefulSearchContainer>
+//   <SearchContainer props={props.merge(getPropsFromStores)} />
+// </StatefulSearchContainer> This is what happens in the background for connectToStores
