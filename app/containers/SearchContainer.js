@@ -5,10 +5,10 @@ var PropTypes = React.PropTypes;
 var EventStore = require('../stores/EventStore').default;
 var connectToStores = require('alt-utils/lib/connectToStores');
 
-// getStores
-// getPropsFromStores
-
-// connectToStores(ComponentClass)
+// Bare-bones skeleton map to making components connect to stores:
+// 1. getStores
+// 2. getPropsFromStores
+// 3. connectToStores(ComponentClass)
 
 var SearchContainer = React.createClass({
   handleSubmit: function(e) {
@@ -16,41 +16,6 @@ var SearchContainer = React.createClass({
     var that = this;
     var data = $('form').serialize();
     EventStore.fetchEvents(data);
-    // axios({
-    //   method: 'post',
-    //   url: 'https://a-wiki-in-time-api.herokuapp.com/query',
-    //   data: data
-    // }).then(function(response){
-    //   if (!!response.error) {
-    //     console.log('err', response);
-    //   } else {
-    //     console.log('success', response);
-    //     if (response.data.polygon == true) {
-    //       var events = []
-    //       var events_array = response.data.events
-    //       for (i = 0; i < events_array.length; i++) {
-    //         var event = events_array[i]
-    //         var coordinates = {lat: event.latitude, lng: event.longitude}
-
-    //         var g_coordinates = new google.maps.LatLng(event.latitude, event.longitude)
-    //         if (google.maps.geometry.poly.containsLocation(g_coordinates, bermudaTriangle) == true) {
-    //           events.push(event);
-    //         }
-    //       }
-    //     } else {
-    //       var events = [];
-    //       var events_array = response.data.events;
-    //       for (var i = 0; i < response.data.events.length; i++) {
-    //         var event = events_array[i]
-    //         var coordinates = {lat: event.latitude, lng: event.longitude};
-    //           events.push(event);
-    //       }
-    //     }
-    //     that.props.onUpdate(events)
-    //   }
-    // }).catch(function(err) {
-    //   console.log('fail', err)
-    // })
   },
 
   contextTypes: {
@@ -66,7 +31,6 @@ var SearchContainer = React.createClass({
   queryAgain() {
     this.setState({hasQueried: false})
   },
-
 
   render(){
     return (

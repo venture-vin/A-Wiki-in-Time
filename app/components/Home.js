@@ -20,9 +20,9 @@ class Home extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    this.refs.map.createMarkersArray(this.state.data)
-  }
+  // componentDidUpdate() {
+  //   this.refs.map.createMarkersArray(this.state.data)
+  // }
 
   componentWillMount() {
     if(google) {

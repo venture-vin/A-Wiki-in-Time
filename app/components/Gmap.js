@@ -6,12 +6,16 @@ var explorerMarker = require('../images/event-marker-4.png');
 var disasterMarker = require('../images/event-marker-5.png');
 var archMarker = require('../images/event-marker-6.png');
 var searchMarker = require('../images/search-marker.png');
+var PropTypes = React.PropTypes;
+var EventStore = require('../stores/EventStore').default;
+var connectToStores = require('alt-utils/lib/connectToStores');
 
 window.bermudaTriangle = {};
 window.googleLat = 37.784580;
 window.googleLng = -122.397437;
 window.googlePoly = '';
 
+// consider extracting to an external file (styles.json)?
 var styleArray = [
 {
   "featureType": "administrative",
@@ -136,7 +140,6 @@ var Gmap = React.createClass({
   getInitialState: function(){
     return {
       zoom: 4,
-      styles: styleArray,
       mostRecentInfoWindow: { close: function(){} },
       mostRecentMarkerWindow: { close: function(){} },
       eventMarkers: [],
@@ -146,6 +149,7 @@ var Gmap = React.createClass({
   },
 
   render: function() {
+    // extract to css class
     var gMapStyles = {
       height: '70%',
       width: '99%',
@@ -338,7 +342,7 @@ var Gmap = React.createClass({
       var mapOptions = {
         zoom: this.state.zoom,
         center: this.mapCenter(),
-        styles: this.state.styles
+        styles: styleArray,
       }
       var map = new google.maps.Map(this.refs.mapCanvas, mapOptions)
       this.setState({map: map})
@@ -392,6 +396,28 @@ var Gmap = React.createClass({
       })
     },
 
+    componentWillReceiveProps(new_props) {
+      if (this.props.events !== new_props.events) {
+        this.createMarkersArray(new_props.events);
+      }
+    },
+
 });
 
-module.exports = Gmap;
+Gmap.getStores = function() {
+  return [EventStore];
+}
+
+Gmap.getPropsFromStores = function() {
+  return EventStore.getState()
+}
+
+Gmap.propTypes = {
+  // events:,
+  // loading:,
+  // errors:,
+  onUpdate: PropTypes.func.isRequired
+}
+
+module.exports = connectToStores(Gmap);
+

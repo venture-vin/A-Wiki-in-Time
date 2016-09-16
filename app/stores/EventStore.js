@@ -2,11 +2,14 @@ import alt from '../shared/alt'
 import EventActions from '../actions/EventActions'
 import EventSource from '../sources/EventSource'
 
+// potential for storing form params: class EventParamsStore
+
 class EventStore {
   constructor() {
     this.events = []
     this.loading = false
     this.errors = []
+    this.params = {}
     this.bindActions(EventActions)
     this.registerAsync(EventSource)
   }
