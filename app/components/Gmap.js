@@ -25,8 +25,6 @@ var EventActions = require('../actions/EventActions').default;
 // module.exports = { React: React, ReactDOM: ReactDOM }
 
 window.bermudaTriangle = {};
-window.googleLat = 37.784580;
-window.googleLng = -122.397437;
 window.googlePoly = '';
 
 // component -> action -> dispatcher -> [api util (source)] -> store -> dispatcher -> component
@@ -200,8 +198,6 @@ var Gmap = React.createClass({
         var lat = event.latLng.lat();
         var long = event.latLng.lng();
         var latlng = {lat: lat, lng: long};
-        googleLat = lat;
-        googleLng = long;
         EventActions.updateSearchParams({lat: lat, long: long});
         that.clearEventMarkers(that.state.eventMarkers);
         that.props.onUpdate();

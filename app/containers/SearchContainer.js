@@ -4,6 +4,7 @@ var axios = require('axios');
 var PropTypes = React.PropTypes;
 var EventStore = require('../stores/EventStore').default;
 var connectToStores = require('alt-utils/lib/connectToStores');
+var qs = require('qs');
 
 // Bare-bones skeleton map to making components connect to stores:
 // 1. getStores
@@ -14,7 +15,7 @@ var SearchContainer = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var that = this;
-    var data = $('form').serialize();
+    var data = qs.parse($('form').serialize());
     EventStore.fetchEvents(data);
   },
 

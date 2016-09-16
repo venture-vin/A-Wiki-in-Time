@@ -9,7 +9,7 @@ class EventStore {
     this.events = []
     this.loading = false
     this.errors = []
-    this.params = {}
+    this.params = {lat: 37.784580, long: -122.397437}
     this.bindActions(EventActions)
     this.registerAsync(EventSource)
   }

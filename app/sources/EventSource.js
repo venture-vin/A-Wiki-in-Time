@@ -6,8 +6,7 @@ import EventActions from '../actions/EventActions'
 export default EventSource = {
   fetchEvents: {
     remote: function (state, data) {
-      const params = _.assign({}, { lat: state.lat, long: state.long }, data)
-      debugger;
+      const params = _.assign({}, { lat: state.params.lat, long: state.params.long }, data)
       return axios({
         method: 'post',
         url: 'https://a-wiki-in-time-api.herokuapp.com/query',

@@ -29,8 +29,6 @@ function SubmitForm(props){
               <SliderEndYr />
               <SliderRadius />
               <input id='polygon-input' type='hidden' name='polygon' value={googlePoly} />
-              <input id='lat-input' type='hidden' name='lat' value={googleLat} />
-              <input id='long-input' type='hidden' name='long' value={googleLng} />
                 <div id='polygon-group' className="row">
                  <button id='polygon-mode' className="btn">Polygon Mode</button>
                  <button id='reset-button' className="btn">Reset</button>
