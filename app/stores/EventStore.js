@@ -40,6 +40,10 @@ class EventStore {
   onFetchEventsFailed(err) {
     this.setState({ errors: [err.statusText], loading: false })
   }
+
+  onUpdateSearchParams(args) {
+    this.setState({params: args});
+  }
 }
 
 export default alt.createStore(EventStore)

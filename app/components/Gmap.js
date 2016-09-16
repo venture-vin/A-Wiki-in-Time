@@ -9,11 +9,27 @@ var searchMarker = require('../images/search-marker.png');
 var PropTypes = React.PropTypes;
 var EventStore = require('../stores/EventStore').default;
 var connectToStores = require('alt-utils/lib/connectToStores');
+var EventActions = require('../actions/EventActions').default;
+
+// export default EventStore
+// module.exports = { default: EventStore }
+
+// export default React
+// import React from 'React'
+// exports = { default: React }
+
+// export React as 'React'
+// export ReactDOM as 'ReactDOM'
+// import { React } from 'React'
+// exports = { React: React, ReactDOM: ReactDOM }
+// module.exports = { React: React, ReactDOM: ReactDOM }
 
 window.bermudaTriangle = {};
 window.googleLat = 37.784580;
 window.googleLng = -122.397437;
 window.googlePoly = '';
+
+// component -> action -> dispatcher -> [api util (source)] -> store -> dispatcher -> component
 
 // consider extracting to an external file (styles.json)?
 var styleArray = [
@@ -186,6 +202,7 @@ var Gmap = React.createClass({
         var latlng = {lat: lat, lng: long};
         googleLat = lat;
         googleLng = long;
+        EventActions.updateSearchParams({lat: lat, long: long});
         that.clearEventMarkers(that.state.eventMarkers);
         that.props.onUpdate();
         this.infoWindow = that.createInfoWindow(latlng);
